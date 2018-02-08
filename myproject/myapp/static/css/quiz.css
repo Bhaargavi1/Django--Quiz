@@ -1,0 +1,46 @@
+header{
+    width:100%;
+    color:white;
+}
+
+.navbar-inverse{
+    background-color:#a4c0f4 !important;
+    background-image:none;
+    border:none;
+}
+.topics{
+    margin-top:60px;
+    margin-left:25px;
+    width:95%;
+}
+.card{
+    margin-left:20px;
+    width:90%;
+}
+.margins{
+    margin-top:40px;
+    margin-bottom:30px;
+}
+.contain{
+    margin-top:10px;
+}
+.image{
+    height:150px;
+    width:150px;
+    margin-bottom:10px;
+}
+.margin_label{
+   margin-top:40px;
+   margin-left:20px;
+}
+.margin_ip{
+    margin-top:30px;
+    margin-bottom:10px;
+}
+.hide{
+   display:none;
+}
+.margin-down{
+   margin-bottom:20px;
+}
+

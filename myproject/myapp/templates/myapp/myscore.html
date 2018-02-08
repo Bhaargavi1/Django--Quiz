@@ -1,0 +1,46 @@
+
+{% load staticfiles %}
+<!Doctype HTML>
+<html lang="en-US">
+<head>
+        <title>Create Quiz</title>
+        <!-- Including all CSS Files -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/quiz.css' %}">
+        <!-- Setting the background image -->
+    </head>
+    <body>
+        <div class = 'row'>
+            <div class = 'col-sm-offset-3 col-sm-6 col-xs-12' style = 'margin-top:50px'>
+                <div class = 'quiz w3-card-4 w3-pale-yellow' style = 'height:100%'>
+                    <header class="w3-container w3-dark-grey text-center">
+                        <h3>Congratulations {{user}}</h3>
+                        <h4>You have completed the Quiz on {{category}}</h4>
+                    </header>
+                    <div class="w3-container text-center contain">
+                        <div style= 'margin-top:30px;margin-bottom:20px;'>
+                            <h1>Your Score is {{score}}</h1>
+                        </div>
+                    </div>
+                    <form method = "POST">{% csrf_token %}
+                        <input type = 'text' value = {{user}} name = 'user' class = 'hide'>
+                        <input type = 'text' value = {{category}} name = 'category' class = 'hide'>
+                        <input type = 'number' value = {{score}} name = 'score' class = 'hide'>
+                        <div class = 'row' style = 'margin-top:20px;margin-bottom:30px'>
+                            <div class = 'col-sm-offset-2 col-sm-4 col-xs-offset-4 col-xs-6'>
+                                <button type = 'submit' name = 'Send_score' class="btn btn-md btn-success">Save and Submit</button>
+                            </div>
+                            <div class = 'col-sm-offset-1 col-sm-4 col-xs-offset-4 col-xs-6'>
+                                <button type = 'submit' name = 'Dont_send' class="btn btn-md btn-danger" >Don't Save and Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+

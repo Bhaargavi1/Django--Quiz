@@ -1,0 +1,123 @@
+{% load staticfiles %}
+<!Doctype HTML>
+<html lang="en-US">
+<head>
+        <title>Create Quiz</title>
+        <!-- Including all CSS Files -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/quiz.css' %}">
+        <!-- Setting the background image -->
+    </head>
+    <body>
+        <!-- Setting the head -->
+        <header class = 'text-center'>
+         <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Quizzing</a>
+                </div>
+                <ul class="nav navbar-nav" style = 'margin-left:30px;'>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li> <a href = "{% url 'leaderboard' %}">Leader-Board</a></li>
+                    <li  class="active"><a href = "{% url 'quiz' %}"> Create Quiz</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+         </nav>
+        </header>
+        
+        <!-- Forms for Quizzing -->
+        <div class = 'row'>
+            <div class = 'col-lg-11 col-md-11 col-sm-12 col-xs-12' style= 'margin-left:50px;margin-top:40px;'>
+                <div class = 'quiz w3-card-4 w3-pale-green'>
+                    <header class="w3-container w3-dark-grey text-center">
+                        <h3>Create A Quiz Question</h3>
+                    </header>
+                    <form method="POST" >{% csrf_token %}
+                       {% if quiz_now.errors %}
+                       {% for field in quiz_now %}
+                       {% for error in field.errors %}
+                       <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                       </div>
+                       {% endfor %}
+                       {% endfor %}
+                       {% endif %}
+                        <div class = 'form-group row'>
+                            <label class = 'col-lg-2 margin_label'>Category</label>
+                            <div class = 'col-lg-9 col-sm-8 col-xs-10'>
+                               <select name="category" class = 'form_control margin_ip' style = 'width:100%;height:30px;'>
+                                <option value = 'Web-Development'>Web-Development</option>
+                                <option value = 'Android-Development'>Android-Development</option>
+                                <option value = 'Data-science'>Data-Science</option>
+                                <option value = 'Indian-Cinema'>Indian-Cinema</option>
+                                <option value = 'Indian-Music'>Indian-Music</option>
+                                <option value = 'Indian-Books'>Indian-Books</option>
+                                <option value = 'Indian-Politics'>Indian-Politics</option>
+                                <option value = 'Indian-History'>Indian-History</option>
+                                <option value = 'Indian-Geography'>Indian-Geography</option>
+                                <option value = 'Maths-and-Aptitude'>Maths-and-Aptitude</option>
+                                <option value = 'Logical-Reasoning'>Logical-Reasoning</option>
+                                <option value = 'English-and-Vocab'>English-and-Vocab</option>
+                               </select>
+                            </div>
+                        </div>
+                        <div class = 'form-group row'>
+                            <label class = 'col-lg-2 margin_label'>Question</label>
+                            <div class = 'col-lg-9 col-sm-8 col-xs-10'>
+                                <textarea class = 'form-control margin_ip' id = 'question' name = 'question' placeholder = 'Enter Your Question'></textarea>
+                            </div>
+                        </div>
+                        <div class = 'form-group row'>
+                            <label class = 'col-lg-2 margin_label'>Option A</label>
+                            <div class = 'col-lg-9 col-sm-8 col-xs-10'>
+                                <textarea class = 'form-control margin_ip' id = 'option_a' name = 'option_a' placeholder = 'Enter Your Option A'></textarea>
+                            </div>
+                        </div>
+                        <div class = 'form-group row'>
+                            <label class = 'col-lg-2 margin_label'>Option B</label>
+                            <div class = 'col-lg-9 col-sm-8 col-xs-10'>
+                                <textarea class = 'form-control margin_ip' id = 'option_b' name = 'option_b' placeholder = 'Enter Your Option B'></textarea>
+                            </div>
+                        </div>
+                        <div class = 'form-group row'>
+                            <label class = 'col-lg-2 margin_label'>Option C</label>
+                            <div class = 'col-lg-9 col-sm-8 col-xs-10'>
+                                <textarea class = 'form-control margin_ip' id = 'option_c' name = 'option_c' placeholder = 'Enter Your Option C'></textarea>
+                            </div>
+                        </div>
+                        <div class = 'form-group row'>
+                            <label class = 'col-lg-2 margin_label'>Option D</label>
+                            <div class = 'col-lg-9 col-sm-8 col-xs-10'>
+                                <textarea class = 'form-control margin_ip' id = 'option_d' name = 'option_d' placeholder = 'Enter Your Option D'></textarea>
+                            </div>
+                        </div>
+                        <div class = 'form-group row'>
+                            <label class = 'col-lg-2 margin_label'>Solution</label>
+                            <div class = 'col-lg-9 col-sm-8 col-xs-10'>
+                                <select name = 'solution' class = 'form_control margin_ip' style = 'width:100%;height:30px;'>
+                                    <option value = '1'>1</option>
+                                    <option value = '2'>2</option>
+                                    <option value = '3'>3</option>
+                                    <option value = '4'>4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class= 'form-group row'>
+                            <div class="col-sm-6 col-xs-offset-3 col-xs-6" style = 'margin-bottom:20px;'>
+                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                            </div>
+                        </div> 
+                </div>
+            </div>
+        </div>
+    </body>
+      
+    </body>
+</>

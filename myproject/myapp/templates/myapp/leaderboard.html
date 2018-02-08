@@ -1,0 +1,66 @@
+{% load staticfiles %}
+<!Doctype HTML>
+<html lang="en-US">
+<head>
+        <title>Create Quiz</title>
+        <!-- Including all CSS Files -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/quiz.css' %}">
+        <!-- Setting the background image -->
+    </head>
+    <body>
+         <header class = 'text-center'>
+         <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Quizzing</a>
+                </div>
+                <ul class="nav navbar-nav" style = 'margin-left:30px;'>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class = 'active'> <a href = "{% url 'leaderboard' %}">Leader-Board</a></li>
+                    <li><a href = "{% url 'quiz' %}"> Create Quiz</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+         </nav>
+        </header>
+          
+          <div class = 'row'>
+            <div class = 'col-lg-11 col-md-11 col-sm-12 col-xs-12' style= 'margin-left:30px;margin-top:20px;width:95%'>
+                <div class = 'quiz w3-card-4 w3-pale-green'>
+                    <header class="w3-container w3-light-grey text-center">
+                        <h3>Leaderboard</h3>
+                    </header>
+                    <div class = 'row'>
+                       
+                        <div class = 'col-sm-offset-1 col-sm-3 col-xs-offset-4 col-xs-6'>
+                            <h3>User-Name</h3>
+                             {% for i in user %}
+                            <h4>{{i}}</h4>
+                            {% endfor %}
+                        </div>
+                        <div class = 'col-sm-offset-1 col-sm-3 col-xs-offset-4 col-xs-6'>
+                            <h3>Category</h3>
+                            {% for i in category %}
+                            <h4>{{i}}</h4>
+                            {% endfor %}
+                        </div>
+                        <div class = 'col-sm-offset-1 col-sm-3 col-xs-offset-4 col-xs-6'>
+                            <h3>Score</h3>
+                            {% for i in score %}
+                            <h4>{{i}}</h4>
+                            {% endfor %}
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

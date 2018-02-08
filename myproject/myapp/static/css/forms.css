@@ -1,0 +1,21 @@
+.heading{
+   color:#990000;
+   font-weight: bold;
+   text-decoration: underline;
+}
+.register_head{
+    font-weight:bold;
+    margin-top:40px;
+}
+.form{
+ margin-top:60px;
+float:right;
+margin-right:100px;
+ width:50%;
+ margin-bottom:20px;
+}
+.margins{
+ margin-top:4px;
+ margin-left:8px;
+ margin-bottom:5px;
+}

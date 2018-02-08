@@ -1,0 +1,195 @@
+{% load staticfiles %}
+<!Doctype HTML>
+<html lang="en-US">
+<head>
+        <title>Home Page</title>
+        <!-- Including all CSS Files -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/quiz.css' %}">
+        <!-- Setting the background image -->
+</head>
+<body>
+    <header class = 'text-center'>
+         <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Quizzing</a>
+    </div>
+    <ul class="nav navbar-nav" style = 'margin-left:30px;'>
+      <li class="active"><a href="{% url 'home' %}">Home</a></li>
+      <li> <a href = "{% url 'leaderboard' %}">Leader-Board</a></li>
+      <li><a href = "{% url 'quiz' %}"> Create Quiz</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+    </header>
+    
+    <article class ='text-center'>
+        <h2 style = 'color:navy'>Choose your topic of quiz</h2>
+    </article>
+    <form method = 'POST'>{% csrf_token %}
+    <section class ='topics'>
+        <div class = 'row'>
+            <div class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+                <div class="w3-card-4 card">
+                    <header class="w3-container w3-light-grey text-center">
+                        <h3>Web Development Quiz</h3>
+                    </header>
+                    <div class="w3-container text-center contain">
+                        <p>Contains Questions on Web Technologies like HTML5 , CSS3, JS, Jquery, MEAN, LAMP, Python, Django, Postgresql</p>
+                        <img src='{% static "images/web.jpg" %}' alt="Avatar" class="image">
+                    </div>
+                    <button name = 'Web-Development' type = 'submit' class="w3-button w3-block w3-dark-grey">Start Quiz</button>
+                </div>
+            </div>
+            <div class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+                <div class="w3-card-4 card">
+                    <header class="w3-container w3-light-grey text-center">
+                        <h3>Mobile Development Quiz</h3>
+                    </header>
+                    <div class="w3-container text-center contain">
+                        <p>Contains Questions on Android, JAVA, IOS App , SWift and more related to mobile app development</p>
+                        <img src='{% static "images/mobile.jpg" %}' alt="Avatar" class="image">
+                    </div>
+                    <button type = 'submit' name = 'Android-Development' value = '' class="w3-button w3-block w3-dark-grey">Start Quiz</button>
+                </div>
+            </div>
+            <div class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+                <div class="w3-card-4 card">
+                    <header class="w3-container w3-light-grey text-center">
+                        <h3>Data Science Quiz</h3>
+                    </header>
+                    <div class="w3-container text-center contain">
+                        <p>Contains Questions on data analysis , Data Science, machine Learning, Artificial Intelligence and much more </p>
+                        <img src='{% static "images/datasc.jpg" %}' alt="Avatar" class="image">
+                    </div>
+                    <button type = 'submit' name = 'Data-science' class="w3-button w3-block w3-dark-grey">Start Quiz</button>
+                </div>
+            </div>
+        </div>
+        <div class = 'row margins'>
+            <div class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+                <div class="w3-card-4 card">
+                    <header class="w3-container w3-light-grey text-center">
+                        <h3>Indian Cinema Quiz </h3>
+                    </header>
+                    <div class="w3-container text-center contain">
+                        <p>Contains Questions on various forms of indian Cinema, the films, the directors, the actors and the actresses</p>
+                        <img src='{% static "images/cinema.jpg" %}' alt="Avatar" class="image" style = 'width:250px'>
+                    </div>
+                    <button type = 'submit' name = 'Indian-Cinema' class="w3-button w3-block w3-dark-grey">Start Quiz</button>
+                </div>
+            </div>
+            <div class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+                <div class="w3-card-4 card">
+                    <header class="w3-container w3-light-grey text-center">
+                        <h3>Indian Music Quiz</h3>
+                    </header>
+                    <div class="w3-container text-center contain">
+                        <p>Contains Questions on Indian music and the great musicians of all times with their melodies</p>
+                        <img src='{% static "images/music.jpg" %}' alt="Avatar" class="image" style = 'width:250px'>
+                    </div>
+                    <button type = 'submit'  name  = 'Indian-Music' class="w3-button w3-block w3-dark-grey">Start Quiz</button>
+                </div>
+            </div>
+            <div class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+                <div class="w3-card-4 card">
+                    <header class="w3-container w3-light-grey text-center">
+                        <h3>Indian Books</h3>
+                    </header>
+                    <div class="w3-container text-center contain">
+                        <p>Contains Questions on indian Books written by famous Indian Authors and best sellers in the country</p>
+                        <img src='{% static "images/books.jpg" %}' alt="Avatar" class="image" style = 'width:250px'>
+                    </div>
+                    <button type = 'submit' name = 'Indian-Books' class="w3-button w3-block w3-dark-grey">Start Quiz</button>
+                </div>
+            </div>
+        </div>
+        <div class = 'row margins' >
+            <div class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+                <div class="w3-card-4 card">
+                    <header class="w3-container w3-light-grey text-center">
+                        <h3>Indian Politics Quiz </h3>
+                    </header>
+                    <div class="w3-container text-center contain">
+                        <p>Contains Questions on Indian Politcs the current parties their situations and much more</p>
+                        <img src='{% static "images/politics.jpg" %}' alt="Avatar" class="image">
+                    </div>
+                    <button type = 'submit' name = 'Indian-Politics' class="w3-button w3-block w3-dark-grey">Start Quiz</button>
+                </div>
+            </div>
+            <div class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+                <div class="w3-card-4 card">
+                    <header class="w3-container w3-light-grey text-center">
+                        <h3>Indian History Quiz</h3>
+                    </header>
+                    <div class="w3-container text-center contain">
+                        <p>Contains Questions on Indian history about brave rulers and intelligent scientists of our country</p>
+                        <img src='{% static "images/his.jpg" %}' alt="Avatar" class="image">
+                    </div>
+                    <button type = 'submit' name = 'Indian-History' class="w3-button w3-block w3-dark-grey">Start Quiz</button>
+                </div>
+            </div>
+            <div class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+                <div class="w3-card-4 card">
+                    <header class="w3-container w3-light-grey text-center">
+                        <h3>Indian Geography</h3>
+                    </header>
+                    <div class="w3-container text-center contain">
+                        <p>Contains Questions on indian Geography on various forests, plains, desert, plateau, mountains, different rivers etc</p>
+                        <img src='{% static "images/geo.jpg" %}' alt="Avatar" class="image">
+                    </div>
+                    <button type = 'submit' name = 'Indian-Geography' class="w3-button w3-block w3-dark-grey">Start Quiz</button>
+                </div>
+            </div>
+        </div>
+        <div class = 'row margins' style = 'margin-bottom:30px'>
+            <div class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+                <div class="w3-card-4 card">
+                    <header class="w3-container w3-light-grey text-center">
+                        <h3>Maths and Aptitude Quiz</h3>
+                    </header>
+                    <div class="w3-container text-center contain">
+                        <p>Contains Questions on Various Topics in Maths like Statistics, Algebra, Probability, Aptitude Quesions, etc</p>
+                        <img src='{% static "images/math.jpg" %}' alt="Avatar" class="image">
+                    </div>
+                    <button type = 'submit' name = 'Maths-and-Aptitude' class="w3-button w3-block w3-dark-grey">Start Quiz</button>
+                </div>
+            </div>
+            <div class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+                <div class="w3-card-4 card">
+                    <header class="w3-container w3-light-grey text-center">
+                        <h3>Logical Reasoning Quiz</h3>
+                    </header>
+                    <div class="w3-container text-center contain">
+                        <p>Contains Questions on Logical Reasoning  like Blood Relations, Series, Sequences, Analogy, odd-one-out etc</p>
+                        <img src='{% static "images/logic.jpg" %}' alt="Avatar" class="image">
+                    </div>
+                    <button type = 'submit' name = 'Logical-Reasoning' class="w3-button w3-block w3-dark-grey">Start Quiz</button>
+                </div>
+            </div>
+            <div class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+                <div class="w3-card-4 card">
+                    <header class="w3-container w3-light-grey text-center">
+                        <h3>English and Vocab Quiz</h3>
+                    </header>
+                    <div class="w3-container text-center contain">
+                        <p>Contains Questions on English like Synonyms, Antomyms, Vocabulary, Phrases, One word for many</p>
+                        <img src='{% static "images/english.jpg" %}' alt="Avatar" class="image">
+                    </div>
+                    <button type = 'submit' name = 'English-and-Vocab' class="w3-button w3-block w3-dark-grey">Start Quiz</button>
+                </div>
+            </div>
+        </div>
+            
+    </section>
+    </form>
+</body>
+</html>
